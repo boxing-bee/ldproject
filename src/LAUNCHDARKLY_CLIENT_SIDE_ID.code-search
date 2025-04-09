@@ -1,0 +1,26 @@
+# Query: LAUNCHDARKLY_CLIENT_SIDE_ID
+# ContextLines: 1
+
+6 results - 3 files
+
+ldproject/.env:
+  1: VITE_LAUNCHDARKLY_CLIENT_SIDE_ID=67ed95a22b800c09a02a08d1
+  2  
+
+ldproject/vite.config.js:
+  8      define: {
+  9:         'process.env.VITE_LAUNCHDARKLY_CLIENT_SIDE_ID': JSON.stringify(process.env.LAUNCHDARKLY_CLIENT_SIDE_ID),
+  10      },
+
+ldproject/src/main.js:
+   2  
+   3: const clientSideId = process.env.VITE_LAUNCHDARKLY_CLIENT_SIDE_ID;
+   4  
+
+   8  
+   9: const client = LaunchDarkly.initialize(VITE_LAUNCHDARKLY_CLIENT_SIDE_ID);
+  10  
+
+  35      // Initialize LaunchDarkly
+  36:     const ldClient = LaunchDarkly.initialize('VITE_LAUNCHDARKLY_CLIENT_SIDE_ID', context);
+  37  
