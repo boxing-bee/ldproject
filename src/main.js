@@ -29,7 +29,7 @@ if (!clientSideId) {
             key: email,
             name: name,
             custom: {
-                group: 'dev', // Change this to control access to `special_greeting`
+                group: 'dev-group', // Change this to control access to `special_greeting`
             },
         };
 
