@@ -1,0 +1,16 @@
+{
+    "name": "ldproject",
+    "version": "1.0.0",
+    "description": "LaunchDarkly Demo",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "serve": "vite preview"
+    },
+    "dependencies": {
+        "launchdarkly-js-client-sdk": "^3.5.0"
+    },
+    "devDependencies": {
+        "vite": "^6.2.5"
+    }
+}
