@@ -16,7 +16,7 @@ if (!clientSideId) {
         // Create the user context
         const context = {
             kind: 'user',
-            key: 'barry@example', // Replace with a valid user key
+            key: 'barry@example.com', // Replace with a valid user key
             name: 'barry', // Optional: Add a name for debugging
             custom: {
                 group: 'dev', // Ensure this matches the targeting rules in LaunchDarkly
@@ -28,8 +28,26 @@ if (!clientSideId) {
             console.log('User context sent to LaunchDarkly:', context);
         });
 
-        // Log the initial value of the special_greeting flag
+        // Evaluate the flags
         const specialGreeting = await client.variation('special_greeting', false);
-        console.log('Initial value of special_greeting:', specialGreeting);
+        const showGreeting = await client.variation('show_greeting', false);
+
+        // Debug logs
+        console.log('special_greeting:', specialGreeting);
+        console.log('show_greeting:', showGreeting);
+
+        // Get the greeting div
+        const greetingDiv = document.getElementById('greeting');
+
+        // Set the greeting message based on the flags
+        if (showGreeting) {
+            let message = `Hello, ${context.name}!`;
+            if (specialGreeting) {
+                message += ' You’ve, unlocked a special greeting!';
+            }
+            greetingDiv.textContent = message;
+        } else {
+            greetingDiv.textContent = 'Greetings are currently turned off.';
+        }
     });
 }
