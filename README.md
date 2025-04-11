@@ -52,6 +52,7 @@ Follow these steps to set up the project:
     *   **Replace** `YOUR_CLIENT_SIDE_ID` in the `src/main.js` file with your actual **LaunchDarkly client-side ID**:
         ```javascript
         const ldClient = LaunchDarkly.initialize('YOUR_CLIENT_SIDE_ID', context);
+        const clientSideId = import.meta.env.VITE_LAUNCHDARKLY_CLIENT_SIDE_ID // I used Vite as my bundler and that's why you see in my main.js file that I used this second line configuration to account for that as part of my initialization.
         ```
 
 4.  **Verify Project Structure**:
@@ -97,15 +98,16 @@ The project uses the following custom attributes in the user context for targeti
 *   **`email`**: The **user's email address** (e.g., `'john.doe@example.com'`) 
 *   **`custom.group`**: A **custom attribute** to identify the user's group (e.g., `'dev'`)
 
-Example context object:
-```javascript
-const context = {
-  key: 'user-123',          // Unique user identifier
-  name: 'John Doe',          // User's name
-  email: 'john.doe@example.com', // User's email
-  custom: {
-    group: 'dev',           // Custom attribute to identify the target group
-  },
+// Create the user context dynamically
+            const context = {
+                kind: 'user',
+                key: email, // Use the email entered by the user
+                name: name, // Use the name entered by the user
+                custom: {
+                    group: 'dev', // Ensure this matches the targeting rules in LaunchDarkly
+                },
+            };
+
 };
 ```
 
