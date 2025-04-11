@@ -2,73 +2,74 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LaunchDarkly Demo</title>
     <style>
-        /* Set the background color to light green (sage) and font color to brown */
+        /* General styling for the form and messages */
         body {
-            background-color: #dfe7d9;
-            /* Sage green */
-            color: #5a3e36;
-            /* Brown */
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-        }
-
-        h1 {
-            text-align: center;
-            margin-top: 1rem;
-        }
-
-        form {
+            background-color: #f4f4f9;
+            color: #333;
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 2rem;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        form {
+            margin-bottom: 20px;
         }
 
         input {
-            margin: 0.5rem 0;
-            padding: 0.5rem;
-            border: 1px solid #5a3e36;
+            margin: 5px;
+            padding: 10px;
+            border: 1px solid #ccc;
             border-radius: 5px;
-            width: 80%;
-            max-width: 300px;
+            font-size: 16px;
         }
 
         button {
-            background-color: #5a3e36;
+            padding: 10px 20px;
+            background-color: #007bff;
             color: white;
             border: none;
-            padding: 0.5rem 1rem;
             border-radius: 5px;
+            font-size: 16px;
             cursor: pointer;
-            font-size: 1rem;
         }
 
         button:hover {
-            background-color: #4a322e;
+            background-color: #0056b3;
         }
 
         #greeting {
-            text-align: center;
-            margin-top: 1rem;
-            font-size: 1.2rem;
+            margin-top: 20px;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        #message {
+            margin-top: 10px;
+            color: blue;
+            font-weight: bold;
+            position: relative;
         }
     </style>
 </head>
 
 <body>
-    <h1>My LaunchDarkly Demo</h1>
+    <h1>LaunchDarkly Demo</h1>
     <form id="name-form">
-        <input type="text" id="name" placeholder="Enter your name" />
-        <input type="email" id="email" placeholder="Enter your email" />
+        <input type="text" id="name" placeholder="Enter your name" required />
+        <input type="email" id="email" placeholder="Enter your email" required />
         <button type="submit">Submit</button>
     </form>
-    <div id="message" style="margin-top: 1rem; color: red; font-weight: bold;"></div>
     <div id="greeting"></div>
+    <div id="message"></div>
 
     <script type="module" src="/src/main.js"></script>
 </body>
